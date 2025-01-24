@@ -1,0 +1,563 @@
+\documentclass[a4paper,12pt]{article}
+
+% ----- Packages ----------------------------------------------------------------------------------
+\usepackage{array}
+\usepackage[capposition=top]{floatrow}
+  \floatsetup[table]{font=small}
+\usepackage{geometry}
+  \geometry{verbose,tmargin=2cm,bmargin=2.5cm,lmargin=2cm,rmargin=2.25cm,footskip=1.5cm}
+\usepackage[bookmarks, hidelinks]{hyperref}
+\usepackage{multirow}
+\usepackage{setspace}
+  \onehalfspacing
+\usepackage[font=small]{caption}
+\usepackage[font=small]{subcaption}
+\usepackage[textsize=normalsize]{todonotes}
+
+% Set paths
+\makeatletter
+\graphicspath{{graphs/}}
+\def\input@path{{tables/}}
+\makeatother
+
+% -------------------------------------------------------------------------------------------------
+
+% ----- Opening -----------------------------------------------------------------------------------
+\title{Does the Added Worker Effect Matter? \\
+Figures and Tables
+}
+
+\author{Nezih Guner\footnote{
+  CEMFI.
+  Email: \href{mailto://nezih.guner@cemfi.es}{nezih.guner@cemfi.es}.
+  }
+\and Yuliya A. Kulikova\footnote{
+  Okinawa Institute of Science and Technology and International Institute for Applied Systems Analysis
+  Email: \href{mailto://yuliya.kulikova@gmail.com}{yuliya.kulikova@gmail.com}.
+  }
+\and Arnau Valladares-Esteban\footnote{
+  University of St. Gallen and SEW.
+  Email: \href{mailto://arnau.valladares@gmail.com}{arnau.valladares@gmail.com}.
+  }
+}
+\date{}
+
+% Start document
+\begin{document}
+\maketitle
+\newpage
+%==================================================================================================
+%----- BEGIN TABLE -----
+\begin{table}[H]
+  \centering
+	\caption{The Added Worker Effect, Married Women}
+  \def\arraystretch{1.25}
+  \input{Y01_AllUne_RegCoeff_DeNUN0_sex2_controls1.tex}
+
+	\floatfoot{\textbf{Notes}:
+    CPS 1976 to 2021.
+    Each cell reports the estimated coefficient $\alpha$, expressed in percentage points, from Equation~1.
+    We include all spouses who move from employment to unemployment.
+    We report 95\% confidence intervals.
+    We use dummies to non-parametrically control for each category of age, education, race, occupation, industry, and own children in the household of both spouses.
+  }
+\end{table}
+%----- END TABLE ----
+
+%----- BEGIN TABLE -----
+\begin{table}[H]
+  \centering
+	\caption{The Added Worker Effect, Married Men}
+  \def\arraystretch{1.25}
+  \input{Y01_AllUne_RegCoeff_DeNUN0_sex1_controls1.tex}
+	\floatfoot{\textbf{Notes}:
+    CPS 1976 to 2021.
+    Each cell reports the estimated coefficient $\alpha$, expressed in percentage points, from Equation~1.
+    We include all spouses who move from employment to unemployment.
+    We report 95\% confidence intervals.
+    We use dummies to non-parametrically control for each category of age, education, race, occupation, industry, and own children in the household of both spouses.
+  }
+\end{table}
+%----- END TABLE ----
+
+%----- BEGIN TABLE -----
+\begin{table}[H]
+  \centering
+	\caption{Shares of Added Workers, Married Women}
+  \def\arraystretch{1.25}
+  \input{Y02_AllUne_Shares_QaSAsh_DeNUN1_sex2.tex}
+	\floatfoot{\textbf{Notes}:
+    CPS 1976 to 2021.
+    Each cell reports a share in percentage.
+    We include all spouses who move from employment to unemployment.
+    We report 95\% confidence intervals from 1,000 bootstraps.
+  }
+\end{table}
+%----- END TABLE ----
+
+%----- BEGIN TABLE -----
+\begin{table}[H]
+  \centering
+	\caption{Shares of Added Workers, Married Men}
+  \def\arraystretch{1.25}
+  \input{Y02_AllUne_Shares_QaSAsh_DeNUN1_sex1.tex}
+	\floatfoot{\textbf{Notes}:
+    CPS 1976 to 2021.
+    Each cell reports a share in percentage.
+    We include all spouses who move from employment to unemployment.
+    We report 95\% confidence intervals from 1,000 bootstraps.
+  }
+\end{table}
+%----- END TABLE ----
+%----- BEGIN TABLE -----
+\begin{table}[H]
+  \centering
+  \caption{Transition Rates}
+  \renewcommand{\arraystretch}{2}
+  \input{A02_Rates_original.tex}
+\end{table}
+%----- END TABLE ----
+
+%----- BEGIN FIGURE -----
+\begin{figure}[H]
+  \centering
+  \caption{Individual Transition Probabilities, Married Women}
+  \foreach \y in {E, U, N}{
+    \foreach \t in {E, U, N}{
+      \if \y\t
+      \else
+        \begin{subfigure}[b]{0.45\textwidth}
+          \centering
+          \includegraphics[scale= 0.125]{Y03_TQSA_Benchmark_\y to\t_DeNUN1_sex2.png}
+          \caption{\y\ to \t}
+        \end{subfigure}
+      \fi
+    }
+  }
+  \floatfoot{\textbf{Notes}:
+    CPS 1976:Q1 to 2019:Q4.
+    All values are in percent.
+    We seasonally adjust monthly estimates using a 12-month moving average and report quarterly averages.
+    The data is corrected for classification errors as described in Appendix~Section~A.1.
+    Probabilities are corrected for time-aggregation bias as described in Appendix~Section~A.2.
+    We report 95\% confidence intervals from 1,000 bootstraps.
+    The vertical gray areas are NBER recession periods.
+  }
+\end{figure}
+%----- END FIGURE -----
+%
+%----- BEGIN FIGURE -----
+\begin{figure}[H]
+  \centering
+  \caption{Individual Transition Probabilities, Married Men}
+  \foreach \y in {E, U, N}{
+    \foreach \t in {E, U, N}{
+      \if \y\t
+      \else
+        \begin{subfigure}[b]{0.45\textwidth}
+          \centering
+          \includegraphics[scale= 0.125]{Y03_TQSA_Benchmark_\y to\t_DeNUN1_sex1.png}
+          \caption{\y\ to \t}
+        \end{subfigure}
+      \fi
+    }
+  }
+  \floatfoot{\textbf{Notes}:
+    CPS 1976:Q1 to 2019:Q4.
+    All values are in percent.
+    We seasonally adjust monthly estimates using a 12-month moving average and report quarterly averages.
+    The data is corrected for classification errors as described in Appendix~Section~A.1.
+    Probabilities are corrected for time-aggregation bias as described in Appendix~Section~A.2.
+    We report 95\% confidence intervals from 1,000 bootstraps.
+    The vertical gray areas are NBER recession periods.
+  }
+\end{figure}
+%----- END FIGURE -----
+
+%----- BEGIN FIGURE -----
+\begin{figure}[H]
+	\centering
+	\caption{Goodness of Fit of the Steady-State Approximation}
+  \begin{subfigure}[b]{0.475\textwidth}
+    \centering
+    \includegraphics[scale= 0.125]{Y04_QSA_Prate_DeNUN1_sex1_flowtype0.png}
+    \caption{Husbands' Participation Rate, $R^2 = 60\%$ }
+  \end{subfigure}
+  \begin{subfigure}[b]{0.475\textwidth}
+    \centering
+    \includegraphics[scale= 0.125]{Y04_QSA_Prate_DeNUN1_sex2_flowtype0.png}
+    \caption{Wives' Participation Rate, $R^2 = 94\%$ }
+  \end{subfigure}
+  \begin{subfigure}[b]{0.475\textwidth}
+    \centering
+    \includegraphics[scale= 0.125]{Y04_QSA_Erate_DeNUN1_sex1_flowtype0.png}
+    \caption{Husbands' Employment Rate, $R^2 = 75\%$ }
+  \end{subfigure}
+  \begin{subfigure}[b]{0.475\textwidth}
+    \centering
+    \includegraphics[scale= 0.125]{Y04_QSA_Erate_DeNUN1_sex2_flowtype0.png}
+    \caption{Wives' Employment Rate, $R^2 = 94\%$ }
+  \end{subfigure}
+  \begin{subfigure}[b]{0.475\textwidth}
+    \centering
+    \includegraphics[scale= 0.125]{Y04_QSA_Urate_DeNUN1_sex1_flowtype0.png}
+    \caption{Husbands' Unemployment Rate, $R^2 = 97\%$ }
+  \end{subfigure}
+  \begin{subfigure}[b]{0.475\textwidth}
+    \centering
+    \includegraphics[scale= 0.125]{Y04_QSA_Urate_DeNUN1_sex2_flowtype0.png}
+    \caption{Wives' Unemployment Rate, $R^2 = 98\%$ }
+  \end{subfigure}
+	\floatfoot{\textbf{Notes}:
+    CPS 1976:Q1 to 2019:Q4.
+    All values are in percent.
+    The solid line is the data.
+    The dashed line is the steady-state approximation.
+    We seasonally adjust monthly estimates using a 12-month moving average and report quarterly averages.
+    The data is corrected for classification errors as described in Appendix~Section~A.1.
+    Probabilities are corrected for time-aggregation bias as described in Appendix~Section~A.2.
+    We report 95\% confidence intervals from 1,000 bootstraps.
+    The vertical gray areas are NBER recession periods.
+  }
+\end{figure}
+%----- END FIGURE -----
+
+%----- BEGIN TABLE -----
+\begin{table}[H]
+	\centering
+	\caption{Joint Conditional Transition Probabilities}
+  \input{J01_Cond_Wife_CPS_DeNUN_original.tex}
+  \\ \bigskip
+  \input{J01_Cond_Husband_CPS_DeNUN_original.tex}
+	\floatfoot{\textbf{Notes}:
+    CPS 1976 to 2019.
+    All values are in percent.
+    Each sub-panel represents the transition probabilities of husbands (upper panel) or wives (lower panel) conditional on the transitions of wives or husbands, respectively.
+    Rows correspond to states in period $t-1$, columns in period $t$.
+    We seasonally adjust monthly estimates using a 12-month moving average and report quarterly averages.
+    The data is corrected for classification errors as described in Appendix~Section~A.1.
+    Probabilities are corrected for time-aggregation bias as described in Appendix~Section~A.2.
+    We report 95\% confidence intervals from 1,000 bootstraps.
+	}
+\end{table}
+%----- END TABLE -----
+
+%----- BEGIN TABLE -----
+\begin{table}[H]
+  \centering
+  \caption{Decomposed Flows}
+  \input{A04_CF_0_original.tex}
+\end{table}
+%----- END TABLE ----
+
+%----- BEGIN TABLE -----
+\begin{table}[H]
+  \centering
+  \caption{Counterfactual Transition Rates}
+  \renewcommand{\arraystretch}{2}
+  \input{A04_CF_1_original.tex}
+\end{table}
+%----- END TABLE ----
+
+%----- BEGIN FIGURE -----
+\begin{figure}[H]
+  \centering
+  \caption{The Aggregate AWE, Married Women}
+  \foreach \r\rname in {P/Participation, E/Employment, U/Unemployment}{
+  \foreach \rw\rwname in {32/Contemporaneous Effect, 34/Effect with Leads and Lags}{
+    \begin{subfigure}[b]{0.45\textwidth}
+      \centering
+      \includegraphics[scale= 0.125]{Y05_CFs_diffTQSA_sex2_DeNUN1_transtype\rw _diff\r rate.png}%
+      \caption{\rname , \rwname}
+    \end{subfigure}%
+  }
+  }
+  \floatfoot{\textbf{Notes}:
+    CPS 1976:Q1 to 2021:Q4.
+    All values are the difference, in percentage points, between the steady-state approximation of the data and the counterfactual steady-state.
+    In the counterfactual, added workers do not enter the labor market and remain classified as non-participants.
+    We include all spouses who move from employment to unemployment.
+    We seasonally adjust monthly estimates using a ratio to moving average.
+    The data is corrected for classification errors as described in Appendix~Section~A.1.
+    Probabilities are corrected for time-aggregation bias as described in Appendix~Section~A.2.
+    We report 95\% confidence intervals from 1,000 bootstraps.
+    The vertical gray areas are NBER recession periods.
+  }
+\end{figure}
+%----- END FIGURE -----
+
+%----- BEGIN TABLE -----
+\begin{table}[H]
+  \centering
+  \caption{The Aggregate AWE, Married Women, Participation}
+  \def\arraystretch{1.25}
+  \input{Y06no_AllUne_CFs_QTSAsh_Prate_DeNUN1_sex2.tex}
+  \floatfoot{\textbf{Notes}:
+    CPS 1976 to 2021.
+    All values are the difference, in percentage points, between the steady-state approximation of the data and the counterfactual steady-state.
+    In the counterfactual, added workers do not enter the labor market and remain classified as non-participants.
+    We include all spouses who move from employment to unemployment.
+    We seasonally adjust monthly estimates using a ratio to moving average.
+    The data is corrected for classification errors as described in Appendix~Section~A.1.
+    Probabilities are corrected for time-aggregation bias as described in Appendix~Section~A.2.
+    We report 95\% confidence intervals from 1,000 bootstraps.
+  }
+\end{table}
+%----- END TABLE ----
+
+%----- BEGIN TABLE -----
+\begin{table}[H]
+  \centering
+  \caption{The Aggregate AWE, Married Women, Employment}
+  \def\arraystretch{1.25}
+  \input{Y06no_AllUne_CFs_QTSAsh_Erate_DeNUN1_sex2.tex}
+  \floatfoot{\textbf{Notes}:
+    CPS 1976 to 2021.
+    All values are the difference, in percentage points, between the steady-state approximation of the data and the counterfactual steady-state.
+    In the counterfactual, added workers do not enter the labor market and remain classified as non-participants.
+    We include all spouses who move from employment to unemployment.
+    We seasonally adjust monthly estimates using a ratio to moving average.
+    The data is corrected for classification errors as described in Appendix~Section~A.1.
+    Probabilities are corrected for time-aggregation bias as described in Appendix~Section~A.2.
+    We report 95\% confidence intervals from 1,000 bootstraps.
+  }
+\end{table}
+%----- END TABLE ----
+
+%----- BEGIN TABLE -----
+\begin{table}[H]
+  \centering
+  \caption{The Aggregate AWE, Married Women, Unemployment}
+  \def\arraystretch{1.25}
+  \input{Y06no_AllUne_CFs_QTSAsh_Urate_DeNUN1_sex2.tex}
+  \floatfoot{\textbf{Notes}:
+    CPS 1976 to 2021.
+    All values are the difference, in percentage points, between the steady-state approximation of the data and the counterfactual steady-state.
+    In the counterfactual, added workers do not enter the labor market and remain classified as non-participants.
+    We include all spouses who move from employment to unemployment.
+    We seasonally adjust monthly estimates using a ratio to moving average.
+    The data is corrected for classification errors as described in Appendix~Section~A.1.
+    Probabilities are corrected for time-aggregation bias as described in Appendix~Section~A.2.
+    We report 95\% confidence intervals from 1,000 bootstraps.
+  }
+\end{table}
+%----- END TABLE ----
+
+%----- BEGIN TABLE -----
+\begin{table}[H]
+  \centering
+	\caption{The Effect of the AWE on the Cyclicality of Married Women's Rates}
+  \def\arraystretch{1.25}
+  \input{Y07no_AllUne_Cyc_QTSAsh_DeNUN1_sex2.tex}
+	\floatfoot{\textbf{Notes}:
+    CPS 1976 to 2021.
+    All values are the difference, in percentage points, between the following two objects.
+    One is the correlation between the GDP's cyclical component and the cyclical component of the steady-state approximation of the data.
+    The second is the correlation between the GDP's cyclical component and the counterfactual steady-state's cyclical component.
+    In the counterfactual, added workers do not enter the labor market and remain classified as non-participants.
+    We include all spouses who move from employment to unemployment.
+    All series are detrended using the Hodrick–Prescott filter with a smoothing parameter of 1,600.
+    We seasonally adjust monthly estimates using a ratio to moving average.
+    The data is corrected for classification errors as described in Appendix~Section~A.1.
+    Probabilities are corrected for time-aggregation bias as described in Appendix ~Section~A.2.
+    We report 95\% confidence intervals from 1,000 bootstraps.
+  }
+\end{table}
+%----- END TABLE ----
+
+%----- BEGIN TABLE -----
+\begin{table}[H]
+  \centering
+  \caption{
+    The Aggregate AWE, Married Women, Participation
+    \vspace{-0.5em}
+    }
+  \begin{floatrow}
+    \footnotesize
+    (Added Workers Enter the Labor Force with the same Probability as Non-Added Workers)
+    \vspace{1em}
+  \end{floatrow}
+  \def\arraystretch{1.25}
+  \input{Y06same_AllUne_CFs_QTSAsh_Prate_DeNUN1_sex2.tex}
+  \floatfoot{\textbf{Notes}:
+    CPS 1976 to 2021.
+    All values are the difference, in percentage points, between the steady-state approximation of the data and the counterfactual steady-state.
+    In the counterfactual, added workers enter the labor market with the same probability as non-added workers.
+    We include all spouses who move from employment to unemployment.
+    We seasonally adjust monthly estimates using a ratio to the moving average. The data is corrected for classification errors as described in Appendix~Section~A.1.
+    Probabilities are corrected for time-aggregation bias as described in Appendix~Section~A.2.
+    We report 95\% confidence intervals from 1,000 bootstraps.
+  }
+\end{table}
+%----- END TABLE ----
+
+\begin{table}[H]
+	\centering
+	\caption{Re-coding of Unemployment -- Non-participation Reversals}
+	\begin{tabular}{cc|cc}
+    \hline \hline
+		Data & Correction & Data & Correction \\ \hline
+		NNUN & NNNN & UUNU & UUUU \\
+		NUNN & NNNN & UNUU & UUUU \\
+		ENUN & ENNN & EUNU & EUUU \\
+		NUNE & NNNE & UNUE & UUUE \\
+		.NUN & .NNN & .UNU & .UUU \\
+		NUN. & NNN. &  UNU. & UUU.\\
+		\multicolumn{4}{c}{Not Corrected} \\
+		NUNU & NUNU & UNUN & UNUN \\
+		\hline \hline \\
+	\end{tabular}
+\end{table}
+
+%----- BEGIN FIGURE -----
+\begin{figure}[H]
+  \centering
+  \caption{The Aggregate AWE, Married Women}
+  \foreach \r\rname in {P/Participation, E/Employment, U/Unemployment}{
+  \foreach \rw\rwname in {32/Contemporaneous Effect, 34/Effect with Leads and Lags}{
+    \begin{subfigure}[b]{0.45\textwidth}
+      \centering
+      \includegraphics[scale= 0.125]{Y08_CFs_diffTQSA_sex2_transtype\rw _diff\r rate.png}
+      \caption{\rname , \rwname}
+    \end{subfigure}
+  }
+  }
+  \floatfoot{\textbf{Notes}:
+    CPS 1976:Q1 to 2021:Q4.
+    All values are the difference, in percentage points, between the steady-state approximation of the data and the counterfactual steady-state.
+    In the counterfactual, added workers do not enter the labor market and remain classified as non-participants.
+    We include all spouses who move from employment to unemployment.
+    We seasonally adjust monthly estimates using a ratio to moving average.
+    Solid lines are constructed with data that are corrected for classification errors as described in Appendix Section~A-1.
+    Dashed lines are constructed with non-corrected data.
+    Probabilities are corrected for time-aggregation bias as described in Appendix Section~A-2.
+    We report 95\% confidence intervals from 1,000 bootstraps.
+    The vertical gray areas are NBER recession periods.
+  }
+\end{figure}
+
+\foreach \s\l\spouse in {2/wives/Women, 1/hubs/Men}{
+  %----- BEGIN TABLE -----
+  \begin{table}[H]
+    \centering
+  	\caption{The Added Worker Effect, Married \spouse , without Control Variables}
+    \def\arraystretch{1.25}
+    \input{Y01_AllUne_RegCoeff_DeNUN0_sex\s_controls0.tex}
+  	\floatfoot{\textbf{Notes}:
+      CPS 1976 to 2021.
+      Each cell reports the estimated coefficient $\alpha$, expressed in percentage points, from Equation~1.
+      We include all spouses who move from employment to unemployment.
+      We report 95\% confidence intervals.
+    }
+  \end{table}
+  %----- END TABLE ----
+}
+
+\foreach \s\l\spouse\xpouse in {2/wives/Women/Husbands', 1/hubs/Men/Wives'}{
+  %----- BEGIN TABLE -----
+  \begin{table}[H]
+    \centering
+  	\caption{The Added Worker Effect, Married \spouse , Excluding \xpouse\ Quits}
+    \def\arraystretch{1.25}
+    \input{Y01_JobLos_RegCoeff_DeNUN0_sex\s_controls1.tex}
+  	\floatfoot{\textbf{Notes}:
+      CPS 1976 to 2021.
+      Each cell reports the estimated coefficient $\alpha$, expressed in percentage points, from Equation~1.
+      We include spouses who move from employment to unemployment and do not report quitting as the reason for unemployment.
+      We report 95\% confidence intervals.
+      We use dummies to non-parametrically control for each category of age, education, race, occupation, industry, and own children in the household of both spouses.
+    }
+  \end{table}
+  %----- END TABLE ----
+}
+
+%----- BEGIN TABLE -----
+\begin{table}[H]
+  \centering
+	\caption{Shares of Added-Workers, Married Women, Excluding Husbands' Quits}
+  \def\arraystretch{1.25}
+  \input{Y02_JobLos_Shares_QaSAsh_DeNUN1_sex2.tex}
+	\floatfoot{\textbf{Notes}:
+    CPS 1976 to 2021.
+    Each cell reports a share in percentage.
+    We include spouses who move from employment to unemployment and do not report quitting as the reason for unemployment.
+    We report 95\% confidence intervals from 1,000 bootstraps.
+  }
+\end{table}
+%----- END TABLE ----
+
+\foreach \r\rname in {E/Employment, U/Unemployment}{
+  %----- BEGIN TABLE -----
+  \begin{table}[H]
+    \centering
+    \caption{
+      The Aggregate AWE, Married Women, \rname\
+      \vspace{-0.5em}
+      }
+    \begin{floatrow}
+      \footnotesize
+      (Added Workers Enter the Labor Force with the same Probability as Non-Added Workers)
+      \vspace{1em}
+    \end{floatrow}
+    \def\arraystretch{1.25}
+    \input{Y06same_AllUne_CFs_QTSAsh_\r rate_DeNUN1_sex2.tex}
+    \floatfoot{\textbf{Notes}:
+      CPS 1976 to 2021.
+      All values are the difference, in percentage points, between the steady-state approximation of the data and the counterfactual steady-state.
+      In the counterfactual, added workers enter the labor market with the same probability as non-added workers.
+      We include all spouses who move from employment to unemployment.
+      We seasonally adjust monthly estimates using a ratio to moving average.
+      The data is corrected for classification errors as described in Appendix~Section~A.1.
+      Probabilities are corrected for time-aggregation bias as described in Appendix~Section~A.2.
+      We report 95\% confidence intervals from 1,000 bootstraps.
+    }
+  \end{table}
+  %----- END TABLE ----
+}
+
+\foreach \r\rname in {P/Participation, E/Employment, U/Unemployment}{
+  %----- BEGIN TABLE -----
+  \begin{table}[H]
+    \centering
+    \caption{
+      The Aggregate AWE, Married Women, \rname , Excluding Husbands' Quits
+      }
+    \def\arraystretch{1.25}
+    \input{Y06no_JobLos_CFs_QTSAsh_\r rate_DeNUN1_sex2.tex}
+    \floatfoot{\textbf{Notes}:
+      CPS 1976 to 2021.
+      All values are the difference, in percentage points, between the steady-state approximation of the data and the counterfactual steady-state.
+      In the counterfactual, added workers do not enter the labor market and remain classified as non-participants.
+      We include spouses who move from employment to unemployment and do not report quitting as the reason for unemployment.
+      We seasonally adjust monthly estimates using a ratio to moving average.
+      The data is corrected for classification errors as described in Appendix~Section~A.1.
+      Probabilities are corrected for time-aggregation bias as described in Appendix~Section~A.2.
+      We report 95\% confidence intervals from 1,000 bootstraps.
+    }
+  \end{table}
+  %----- END TABLE ----
+}
+
+\foreach \r\rname in {P/Participation, E/Employment, U/Unemployment}{
+  %----- BEGIN TABLE -----
+  \begin{table}[H]
+    \centering
+  	\caption{The Aggregate AWE, Married Men, \rname\ }
+    \def\arraystretch{1.25}
+  	\input{Y06no_AllUne_CFs_QTSAsh_\r rate_DeNUN1_sex1.tex}
+  	\floatfoot{\textbf{Notes}:
+      CPS 1976 to 2021.
+      All values are the difference, in percentage points, between the steady-state approximation of the data and the counterfactual steady-state.
+      In the counterfactual, added workers do not enter the labor market and remain classified as non-participants.
+      We include all spouses who move from employment to unemployment.
+      We seasonally adjust monthly estimates using a ratio to moving average.
+      The data is corrected for classification errors as described in Appendix~Section~A.1.
+      Probabilities are corrected for time-aggregation bias as described in Appendix~Section~A.2.
+      We report 95\% confidence intervals from 1,000 bootstraps.
+    }
+  \end{table}
+  %----- END TABLE ----
+}
+% %==================================================================================================
+
+\end{document}

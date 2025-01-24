@@ -1,0 +1,10 @@
+local cm1 = "green" // Singles
+local c0 = "black" // Married/Benchmark
+local c10 = "red" // spouse is removed worker
+local c20 = "blue" // spouse is NOT removed worker
+local c30 = "orange" // counterfactual
+local c40 = "purple" // spouse is removed worker vs spouse is not
+local cr1 = "eltgreen" // Contemporaneous job losers only
+local cr2 = "green" // Contemporaneous all unemployed
+local cr3 = "ltblue" // Leads and lags job losers only
+local cr4 = "blue" // Leads and lags all unemployed
